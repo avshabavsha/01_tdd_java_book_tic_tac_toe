@@ -20,7 +20,20 @@ public class TicTacToe {
         setBox(board[x - 1], y);
         if (isWin()) return lastPlayer + " is the winner";
 
+        if(isDraw()) return "The result is draw";
+
         return "No winner";
+    }
+
+    private boolean isDraw() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (board[i][j] == EMPTY)
+                    return false;
+            }
+        }
+
+        return true;
     }
 
     private boolean isWin() {
