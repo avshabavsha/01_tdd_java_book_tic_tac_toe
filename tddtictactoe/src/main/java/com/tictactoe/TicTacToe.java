@@ -5,6 +5,7 @@ package com.tictactoe;
  */
 public class TicTacToe {
     private static final char EMPTY  = '\0';
+    private char lastPlayer  = '\0';
     private Character[][] board = {
             {EMPTY,EMPTY,EMPTY},
             {EMPTY,EMPTY,EMPTY},
@@ -15,6 +16,7 @@ public class TicTacToe {
         checkAxis(x, "X outside board");
         checkAxis(y, "Y outside board");
         setBox(board[x - 1], y);
+        lastPlayer = nextPlayer();
     }
 
     private void setBox(Character[] characters, int y) {
@@ -27,5 +29,12 @@ public class TicTacToe {
     private void checkAxis(int axis, String message) {
         if (axis < 1 || axis > 3)
             throw new RuntimeException(message);
+    }
+
+    public char nextPlayer() {
+        if(lastPlayer == 'X'){
+            return 'O';
+        }
+        return 'X';
     }
 }
