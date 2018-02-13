@@ -4,11 +4,28 @@ package com.tictactoe;
  * Created by avshaloms on 13/02/2018.
  */
 public class TicTacToe {
-    public void play(int x, int y) {
-        if(x < 1 || x > 3)
-            throw new RuntimeException("X outside board");
+    private static final char EMPTY  = '\0';
+    private Character[][] board = {
+            {EMPTY,EMPTY,EMPTY},
+            {EMPTY,EMPTY,EMPTY},
+            {EMPTY,EMPTY,EMPTY}
+    };
 
-        if(y < 1 || y > 3)
-            throw new RuntimeException("Y outside board");
+    public void play(int x, int y) {
+        checkAxis(x, "X outside board");
+        checkAxis(y, "Y outside board");
+        setBox(board[x - 1], y);
+    }
+
+    private void setBox(Character[] characters, int y) {
+        if(characters[y-1] != EMPTY)
+            throw new RuntimeException("Box is occupied");
+
+        characters[y-1] = 'X';
+    }
+
+    private void checkAxis(int axis, String message) {
+        if (axis < 1 || axis > 3)
+            throw new RuntimeException(message);
     }
 }
