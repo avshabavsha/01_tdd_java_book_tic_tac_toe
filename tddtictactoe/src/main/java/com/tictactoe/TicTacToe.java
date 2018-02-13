@@ -25,19 +25,21 @@ public class TicTacToe {
 
     private boolean isWin() {
         int playerTotal = lastPlayer * SIZE;
+
+        char diagonal1 = EMPTY;
+        char diagonal2 = EMPTY;
         for(int i = 0; i < SIZE; i++){
+            diagonal1 += board[i][i];
+            diagonal2 += board[i][SIZE-i-1];
+
             if(board[0][i] + board[1][i] + board[2][i] == playerTotal)
                 return true;
             if(board[i][0] + board[i][1] + board[i][2] == playerTotal)
                 return true;
         }
 
-        if(board[0][0] + board[1][1] + board[2][2] == playerTotal)
+        if(diagonal1 == playerTotal || diagonal2 == playerTotal)
             return true;
-
-        if(board[0][2] + board[1][1] + board[2][0] == playerTotal)
-            return true;
-
 
         return false;
     }
