@@ -1,6 +1,7 @@
 package remoteship;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import remoteship.utils.Direction;
 import remoteship.utils.Location;
@@ -11,14 +12,37 @@ import remoteship.utils.Ship;
  * Created by avshaloms on 14/02/2018.
  */
 public class ShipTest {
+    private Location location;
+    private Ship ship;
 
-    @Test
-    public void whenInstantiatedThenLocationIsSet() {
-        Location location = new Location(
+    @Before
+    public void setup(){
+        location = new Location(
                 new Point(21, 13),
                 Direction.NORTH);
 
-        Ship ship = new Ship(location);
+        ship = new Ship(location);
+    }
+
+    @Test
+    public void whenInstantiatedThenLocationIsSet() {
         Assert.assertEquals(location, ship.getLocation());
     }
+
+    @Test
+    public void whenMoveForwardThenForward() {
+        Location expected = location.copy();
+        expected.forward();
+        ship.moveForward();
+        Assert.assertEquals(expected, ship.getLocation());
+    }
+
+    @Test
+    public void whenMoveBackwardThenBackward() {
+        Location expected = location.copy();
+        expected.backward();
+        ship.moveBackward();
+        Assert.assertEquals(expected, ship.getLocation());
+    }
+
 }
