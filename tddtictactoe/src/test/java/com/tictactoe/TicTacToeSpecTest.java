@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by avshaloms on 13/02/2018.
  */
-public class TicTacToeSpec {
+public class TicTacToeSpecTest {
     @Rule
     public ExpectedException exception = ExpectedException.none();
 
@@ -25,6 +25,12 @@ public class TicTacToeSpec {
     public void whenXOutsideBoardThenRuntimeException(){
         exception.expect(RuntimeException.class);
         ticTacToe.play(5,2);
+    }
+
+    @Test
+    public void whenXLessThanMinumumXBoardThenRuntimeException(){
+        exception.expect(RuntimeException.class);
+        ticTacToe.play(0,2);
     }
 
     @Test
