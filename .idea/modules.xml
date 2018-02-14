@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/01_tdd_java_book_tic_tac_toe.iml" filepath="$PROJECT_DIR$/.idea/01_tdd_java_book_tic_tac_toe.iml" />
+      <module fileurl="file://$PROJECT_DIR$/remotecontrolledship/remotecontrolledship.iml" filepath="$PROJECT_DIR$/remotecontrolledship/remotecontrolledship.iml" />
       <module fileurl="file://$PROJECT_DIR$/tddtictactoe/tddtictactoe.iml" filepath="$PROJECT_DIR$/tddtictactoe/tddtictactoe.iml" />
     </modules>
   </component>
