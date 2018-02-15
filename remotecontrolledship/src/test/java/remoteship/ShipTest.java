@@ -3,10 +3,7 @@ package remoteship;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import remoteship.utils.Direction;
-import remoteship.utils.Location;
-import remoteship.utils.Point;
-import remoteship.utils.Ship;
+import remoteship.utils.*;
 
 /**
  * Created by avshaloms on 14/02/2018.
@@ -70,7 +67,7 @@ public class ShipTest {
     }
 
     @Test
-    public void whenReceiveCommansThenAllAreExecuted(){
+    public void whenReceiveCommandsThenAllAreExecuted(){
         Location expected = location.copy();
         expected.turnRight();
         expected.forward();
@@ -79,4 +76,13 @@ public class ShipTest {
         ship.receiveCommands("rflb");
         Assert.assertEquals(expected, ship.getLocation());
     }
+
+    @Test
+    public void whenInstantiatedThenPlanetIsStored(){
+        Point max = new Point(50, 50);
+        Planet planet = new Planet(max);
+        ship = new Ship(location, planet);
+        Assert.assertEquals(planet, ship.getPlanet());
+    }
+
 }
