@@ -45,4 +45,38 @@ public class ShipTest {
         Assert.assertEquals(expected, ship.getLocation());
     }
 
+    @Test
+    public void whenTurnLeftTurnLeft() {
+        Location expected = location.copy();
+        expected.turnLeft();
+        ship.turnLeft();
+        Assert.assertEquals(expected, ship.getLocation());
+    }
+
+    @Test
+    public void whenTurnRightTurnRight() {
+        Location expected = location.copy();
+        expected.turnRight();
+        ship.turnRight();
+        Assert.assertEquals(expected, ship.getLocation());
+    }
+
+    @Test
+    public void whenRecieveCommandFThenForward(){
+        Location expected = location.copy();
+        expected.forward();
+        ship.receiveCommands("f");
+        Assert.assertEquals(expected, ship.getLocation());
+    }
+
+    @Test
+    public void whenReceiveCommansThenAllAreExecuted(){
+        Location expected = location.copy();
+        expected.turnRight();
+        expected.forward();
+        expected.turnLeft();
+        expected.backward();
+        ship.receiveCommands("rflb");
+        Assert.assertEquals(expected, ship.getLocation());
+    }
 }
