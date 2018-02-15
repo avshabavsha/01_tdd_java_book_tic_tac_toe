@@ -11,6 +11,7 @@ import remoteship.utils.*;
 public class ShipTest {
     private Location location;
     private Ship ship;
+    private Planet planet;
 
     @Before
     public void setup(){
@@ -18,7 +19,10 @@ public class ShipTest {
                 new Point(21, 13),
                 Direction.NORTH);
 
-        ship = new Ship(location);
+        Point max = new Point(50, 50);
+        planet = new Planet(max);
+        ship = new Ship(location, planet);
+
     }
 
     @Test
@@ -79,9 +83,6 @@ public class ShipTest {
 
     @Test
     public void whenInstantiatedThenPlanetIsStored(){
-        Point max = new Point(50, 50);
-        Planet planet = new Planet(max);
-        ship = new Ship(location, planet);
         Assert.assertEquals(planet, ship.getPlanet());
     }
 

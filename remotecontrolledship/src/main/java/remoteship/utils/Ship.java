@@ -4,13 +4,8 @@ import lombok.Getter;
 
 @Getter
 public class Ship {
-
     private final Location location;
     private Planet planet;
-
-    public Ship(Location location) {
-        this.location = location;
-    }
 
     public Ship(Location location, Planet planet) {
         this.location = location;
