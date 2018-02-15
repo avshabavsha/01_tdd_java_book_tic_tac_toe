@@ -86,4 +86,22 @@ public class ShipTest {
         Assert.assertEquals(planet, ship.getPlanet());
     }
 
+
+    @Test
+    public void overpassEastBoundary(){
+        location.setDirection(Direction.EAST);
+        location.getPoint().setX(planet.getMax().getX());
+        ship.receiveCommands("f");
+        Assert.assertEquals(1, location.getX());
+    }
+
+
+    @Test
+    public void overpassWestBoundary(){
+        location.setDirection(Direction.EAST);
+        location.getPoint().setX(1);
+        ship.receiveCommands("b");
+        Assert.assertEquals(planet.getMax().getX(), location.getX());
+    }
+
 }

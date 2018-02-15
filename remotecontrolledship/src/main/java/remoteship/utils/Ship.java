@@ -13,11 +13,11 @@ public class Ship {
     }
 
     public void moveForward() {
-        location.forward();
+        location.forward(planet.getMax());
     }
 
     public void moveBackward() {
-        location.backward();
+        location.backward(planet.getMax());
     }
 
     public void turnLeft() {
